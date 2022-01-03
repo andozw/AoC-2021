@@ -1,10 +1,6 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+use crate::common::get_file;
+use std::io::BufRead;
 
-fn get_file(filename: &str) -> BufReader<File> {
-    let file = File::open(filename).unwrap();
-    BufReader::new(file)
-}
 
 fn get_increases_part_1(filename: &str) -> i32 {
     let reader = get_file(filename);
@@ -97,7 +93,7 @@ mod tests {
 
     #[test]
     fn my_input_1() {
-        assert_eq!(get_increases_part_1("src/days/day1/myinput.txt"), 1557);
+        assert_eq!(get_increases_part_1("src/days/day1/input.txt"), 1557);
     }
 
     #[test]
@@ -113,6 +109,6 @@ mod tests {
 
     #[test]
     fn my_input_2() {
-        assert_eq!(get_window_increases_part_2("src/days/day1/myinput.txt"), 5);
+        assert_eq!(get_window_increases_part_2("src/days/day1/input.txt"), 1608);
     }
 }
